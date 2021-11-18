@@ -26,7 +26,7 @@ function highlightCups(idx) {
   });
   updateBigCup();
 }
-
+//  update BigCup
 function updateBigCup() {
   const fullCups = document.querySelectorAll('.cup-small.full').length;
   const totalCups = smallCups.length;
@@ -45,6 +45,6 @@ function updateBigCup() {
     remainded.style.height = 0;
   } else {
     remainded.style.visibility = 'visible';
-    liters.innerText = `${2 - (250 * fullCups) / 1000}`;
+    liters.innerText = `${2 - (250 * fullCups) / 1000}L`;
   }
 }
