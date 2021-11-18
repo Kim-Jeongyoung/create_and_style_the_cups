@@ -11,12 +11,14 @@ smallCups.forEach((cup, idx) => {
 
 function highlightCups(idx) {
   // toggle the last one
-  if (
+  if (idx === 7 && smallCups[idx].classList.contains('full')) idx--;
+  else if (
     smallCups[idx].classList.contains('full') &&
     !smallCups[idx].nextElementSibling.classList.contains('full')
   ) {
     idx--;
   }
+
   smallCups.forEach((cup, idx2) => {
     if (idx2 <= idx) {
       cup.classList.add('full');
@@ -35,6 +37,8 @@ function updateBigCup() {
     percentage.style.visibility = 'hidden';
     percentage.style.height = 0;
   } else {
+    //   작은 컵 click 했을 때 큰 컵에서 보이기
+    percentage.style.visibility = 'visible';
     percentage.style.height = `${(fullCups / totalCups) * 330}px`;
     percentage.innerText = `${(fullCups / totalCups) * 100} %`;
   }
